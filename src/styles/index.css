@@ -10,3 +10,35 @@ body {
   font-family: inherit;
   margin: unset;
 }
+
+/* Mobile filter sidebar improvements */
+@media (max-width: 1023px) {
+  .filter-sidebar-open {
+    overflow: hidden;
+  }
+  
+  /* Smooth touch interactions */
+  .filter-sidebar {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  
+  /* Prevent horizontal scroll on mobile */
+  .filter-sidebar-content {
+    overflow-x: hidden;
+  }
+}
+
+/* Touch-friendly button improvements */
+@media (max-width: 640px) {
+  button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improve touch targets for checkboxes */
+  input[type="checkbox"] {
+    min-width: 20px;
+    min-height: 20px;
+  }
+}
