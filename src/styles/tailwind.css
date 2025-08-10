@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --color-background: #FEFCFA; /* warm-white */
+    --color-foreground: #2C2825; /* warm-charcoal */
+    --color-border: #E8E3DC; /* warm-gray-200 */
+    --color-input: #F9F6F2; /* warm-gray-50 */
+    --color-ring: #D4A574; /* rose-gold */
+    
+    /* Card Colors */
+    --color-card: #F9F6F2; /* warm-gray-50 */
+    --color-card-foreground: #2C2825; /* warm-charcoal */
+    --color-popover: #FEFCFA; /* warm-white */
+    --color-popover-foreground: #2C2825; /* warm-charcoal */
+    
+    /* Muted Colors */
+    --color-muted: #F4F1ED; /* warm-canvas */
+    --color-muted-foreground: #6B645E; /* warm-gray-500 */
+    
+    /* Primary Colors */
+    --color-primary: #D4A574; /* rose-gold */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #E8E3DC; /* warm-gray-200 */
+    --color-secondary-foreground: #2C2825; /* warm-charcoal */
+    
+    /* Accent Colors */
+    --color-accent: #C17B5C; /* terracotta */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Success Colors */
+    --color-success: #7A9B76; /* sage-green */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    /* Warning Colors */
+    --color-warning: #C4956C; /* warm-amber */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    /* Error Colors */
+    --color-error: #B85C5C; /* warm-red */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    /* Destructive Colors */
+    --color-destructive: #B85C5C; /* warm-red */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Brand Specific Colors */
+    --color-brand-primary: #F4E6D9; /* warm-ivory */
+    --color-brand-secondary: #E8B4A0; /* soft-rose-gold */
+    --color-trust-builder: #A8B5A0; /* sage-green-light */
+    --color-conversion: #C17B5C; /* terracotta */
+    
+    /* Radius */
+    --radius: 8px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+  
+  .font-accent {
+    font-family: 'Crimson Text', serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glow-reveal {
+    mask-image: radial-gradient(circle, transparent 0%, black 100%);
+    animation: glowReveal 0.8s ease-out forwards;
+  }
+  
+  @keyframes glowReveal {
+    from {
+      mask-image: radial-gradient(circle at center, transparent 0%, transparent 50%, black 100%);
+    }
+    to {
+      mask-image: radial-gradient(circle at center, black 0%, black 100%);
+    }
+  }
+  
+  .breathing-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .breathing-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(196, 123, 92, 0.15);
+  }
+  
+  .organic-morph {
+    background: radial-gradient(circle at 50% 50%, var(--color-brand-primary), var(--color-brand-secondary));
+    transition: transform 0.8s ease-in-out, filter 0.8s ease-in-out;
+  }
+  
+  .organic-morph:hover {
+    transform: scale(1.02);
+    filter: hue-rotate(15deg);
+  }
+  
+  .pulse-glow {
+    animation: pulseGlow 2s infinite;
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.02);
+    }
+  }
+}
