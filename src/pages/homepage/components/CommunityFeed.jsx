@@ -1,165 +1,191 @@
-import React, { useState } from 'react';
-import Button from '../../../components/ui/Button';
-import Image from '../../../components/AppImage';
-import Icon from '../../../components/AppIcon';
+import React, { useState } from "react";
+import Button from "../../../components/ui/Button";
+import Image from "../../../components/AppImage";
+import Icon from "../../../components/AppIcon";
 
 const CommunityFeed = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState("all");
 
   const feedItems = [
     {
       id: 1,
-      type: 'transformation',
+      type: "transformation",
       user: {
         name: "Emma Rodriguez",
-        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
-        verified: true
+        avatar:
+          "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
+        verified: true,
       },
       content: {
         title: "My 30-Day Glow Journey",
-        description: "Finally found the perfect routine for my sensitive skin! The gentle approach really works.",
-        image: "https://images.pexels.com/photos/3762879/pexels-photo-3762879.jpeg?w=400&h=300&fit=crop",
-        tags: ["Sensitive Skin", "Natural Glow", "30-Day Challenge"]
+        description:
+          "Finally found the perfect routine for my sensitive skin! The gentle approach really works.",
+        image:
+          "https://images.pexels.com/photos/3762879/pexels-photo-3762879.jpeg?w=400&h=300&fit=crop",
+        tags: ["Sensitive Skin", "Natural Glow", "30-Day Challenge"],
       },
       engagement: {
         likes: 342,
         comments: 28,
-        shares: 15
+        shares: 15,
       },
-      timeAgo: "2 hours ago"
+      timeAgo: "2 hours ago",
     },
     {
       id: 2,
-      type: 'tip',
+      type: "tip",
       user: {
         name: "Dr. Sarah Chen",
-        avatar: "https://images.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.jpg?w=100&h=100&fit=crop",
+        avatar:
+          "https://images.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.jpg?w=100&h=100&fit=crop",
         verified: true,
-        badge: "Expert"
+        badge: "Expert",
       },
       content: {
         title: "The Science Behind Vitamin C",
-        description: "Understanding L-Ascorbic Acid vs. Magnesium Ascorbyl Phosphate and which one works best for your skin type.",
-        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=300&fit=crop",
-        tags: ["Vitamin C", "Skincare Science", "Expert Tip"]
+        description:
+          "Understanding L-Ascorbic Acid vs. Magnesium Ascorbyl Phosphate and which one works best for your skin type.",
+        image:
+          "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=300&fit=crop",
+        tags: ["Vitamin C", "Skincare Science", "Expert Tip"],
       },
       engagement: {
         likes: 1247,
         comments: 89,
-        shares: 156
+        shares: 156,
       },
-      timeAgo: "4 hours ago"
+      timeAgo: "4 hours ago",
     },
     {
       id: 3,
-      type: 'review',
+      type: "review",
       user: {
         name: "Maya Patel",
-        avatar: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=100&h=100&fit=crop&crop=face",
-        verified: false
+        avatar:
+          "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=100&h=100&fit=crop&crop=face&auto=format&q=80",
+        verified: false,
       },
       content: {
         title: "Honest Review: Retinol Serum",
-        description: "After 8 weeks of consistent use, here's what I noticed. Spoiler: my skin texture has never been better!",
-        image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?w=400&h=300&fit=crop",
+        description:
+          "After 8 weeks of consistent use, here's what I noticed. Spoiler: my skin texture has never been better!",
+        image:
+          "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=300&fit=crop&crop=face&auto=format&q=80",
         tags: ["Product Review", "Retinol", "Anti-Aging"],
-        rating: 5
+        rating: 5,
       },
       engagement: {
         likes: 567,
         comments: 43,
-        shares: 22
+        shares: 22,
       },
-      timeAgo: "6 hours ago"
+      timeAgo: "6 hours ago",
     },
     {
       id: 4,
-      type: 'routine',
+      type: "routine",
       user: {
         name: "Alex Kim",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-        verified: false
+        avatar:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face&auto=format&q=80",
+        verified: false,
       },
       content: {
         title: "My Minimalist Morning Routine",
-        description: "5 steps, 10 minutes, maximum glow. Perfect for busy mornings when you still want to look put-together.",
-        image: "https://images.pixabay.com/photo/2020/05/18/16/17/social-media-5187243_1280.png?w=400&h=300&fit=crop",
-        tags: ["Morning Routine", "Minimalist", "Quick Routine"]
+        description:
+          "5 steps, 10 minutes, maximum glow. Perfect for busy mornings when you still want to look put-together.",
+        image:
+          "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&h=300&fit=crop&crop=face&auto=format&q=80",
+        tags: ["Morning Routine", "Minimalist", "Quick Routine"],
       },
       engagement: {
         likes: 892,
         comments: 67,
-        shares: 134
+        shares: 134,
       },
-      timeAgo: "8 hours ago"
+      timeAgo: "8 hours ago",
     },
     {
       id: 5,
-      type: 'challenge',
+      type: "challenge",
       user: {
         name: "Beauty Glow",
-        avatar: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=100&h=100&fit=crop",
+        avatar:
+          "https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=100&h=100&fit=crop&auto=format&q=80",
         verified: true,
-        badge: "Official"
+        badge: "Official",
       },
       content: {
         title: "7-Day Hydration Challenge",
-        description: "Join thousands in our weekly hydration challenge! Track your water intake and see how it affects your skin\'s natural glow.",
-        image: "https://images.pexels.com/photos/416978/pexels-photo-416978.jpeg?w=400&h=300&fit=crop",
-        tags: ["Challenge", "Hydration", "Community"]
+        description:
+          "Join thousands in our weekly hydration challenge! Track your water intake and see how it affects your skin's natural glow.",
+        image:
+          "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&h=300&fit=crop&crop=face&auto=format&q=80",
+        tags: ["Challenge", "Hydration", "Community"],
       },
       engagement: {
         likes: 2156,
         comments: 234,
-        shares: 445
+        shares: 445,
       },
-      timeAgo: "12 hours ago"
+      timeAgo: "12 hours ago",
     },
     {
       id: 6,
-      type: 'ingredient-spotlight',
+      type: "ingredient-spotlight",
       user: {
         name: "Ingredient Insider",
-        avatar: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=100&h=100&fit=crop&crop=face",
+        avatar:
+          "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=100&h=100&fit=crop&crop=face&auto=format&q=80",
         verified: true,
-        badge: "Expert"
+        badge: "Expert",
       },
       content: {
         title: "Niacinamide: The Multi-Tasker",
-        description: "Why this B3 vitamin deserves a spot in everyone's routine. From pore appearance to oil control, it does it all.",
-        image: "https://images.pixabay.com/photo/2017/09/07/08/54/money-2724241_1280.jpg?w=400&h=300&fit=crop",
-        tags: ["Niacinamide", "Ingredient Spotlight", "Skincare Education"]
+        description:
+          "Why this B3 vitamin deserves a spot in everyone's routine. From pore appearance to oil control, it does it all.",
+        image:
+          "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=300&fit=crop&crop=face&auto=format&q=80",
+        tags: ["Niacinamide", "Ingredient Spotlight", "Skincare Education"],
       },
       engagement: {
         likes: 1683,
         comments: 156,
-        shares: 289
+        shares: 289,
       },
-      timeAgo: "1 day ago"
-    }
+      timeAgo: "1 day ago",
+    },
   ];
 
   const filters = [
-    { id: 'all', label: 'All Posts', icon: 'Grid3X3' },
-    { id: 'transformation', label: 'Transformations', icon: 'Sparkles' },
-    { id: 'tip', label: 'Expert Tips', icon: 'Lightbulb' },
-    { id: 'review', label: 'Reviews', icon: 'Star' },
-    { id: 'routine', label: 'Routines', icon: 'Clock' }
+    { id: "all", label: "All Posts", icon: "Grid3X3" },
+    { id: "transformation", label: "Transformations", icon: "Sparkles" },
+    { id: "tip", label: "Expert Tips", icon: "Lightbulb" },
+    { id: "review", label: "Reviews", icon: "Star" },
+    { id: "routine", label: "Routines", icon: "Clock" },
   ];
 
-  const filteredItems = activeFilter === 'all' 
-    ? feedItems 
-    : feedItems?.filter(item => item?.type === activeFilter);
+  const filteredItems =
+    activeFilter === "all"
+      ? feedItems
+      : feedItems?.filter((item) => item?.type === activeFilter);
 
   const getTypeIcon = (type) => {
     switch (type) {
-      case 'transformation': return 'Sparkles';
-      case 'tip': return 'Lightbulb';
-      case 'review': return 'Star';
-      case 'routine': return 'Clock';
-      case 'challenge': return 'Trophy';
-      case 'ingredient-spotlight': return 'FlaskConical';
-      default: return 'MessageCircle';
+      case "transformation":
+        return "Sparkles";
+      case "tip":
+        return "Lightbulb";
+      case "review":
+        return "Star";
+      case "routine":
+        return "Clock";
+      case "challenge":
+        return "Trophy";
+      case "ingredient-spotlight":
+        return "FlaskConical";
+      default:
+        return "MessageCircle";
     }
   };
 
@@ -172,8 +198,8 @@ const CommunityFeed = () => {
             Community Glow Feed
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Real stories, expert insights, and beauty discoveries from our vibrant community. 
-            Get inspired and share your own glow journey.
+            Real stories, expert insights, and beauty discoveries from our
+            vibrant community. Get inspired and share your own glow journey.
           </p>
         </div>
 
@@ -206,10 +232,15 @@ const CommunityFeed = () => {
                   src={item?.content?.image}
                   alt={item?.content?.title}
                   className="w-full h-full object-cover"
+                  fallbackSrc="/assets/images/beauty_placeholder.svg"
                 />
                 <div className="absolute top-3 left-3">
                   <div className="bg-black/70 backdrop-blur-sm rounded-full p-2">
-                    <Icon name={getTypeIcon(item?.type)} size={16} color="white" />
+                    <Icon
+                      name={getTypeIcon(item?.type)}
+                      size={16}
+                      color="white"
+                    />
                   </div>
                 </div>
                 {item?.content?.rating && (
@@ -228,6 +259,7 @@ const CommunityFeed = () => {
                     src={item?.user?.avatar}
                     alt={item?.user?.name}
                     className="w-10 h-10 rounded-full object-cover"
+                    fallbackSrc="/assets/images/beauty_placeholder.svg"
                   />
                   <div className="flex-1">
                     <div className="flex items-center space-x-2">
@@ -235,7 +267,11 @@ const CommunityFeed = () => {
                         {item?.user?.name}
                       </span>
                       {item?.user?.verified && (
-                        <Icon name="BadgeCheck" size={14} className="text-primary" />
+                        <Icon
+                          name="BadgeCheck"
+                          size={14}
+                          className="text-primary"
+                        />
                       )}
                       {item?.user?.badge && (
                         <span className="bg-accent text-white text-xs px-2 py-0.5 rounded-full">
@@ -243,7 +279,9 @@ const CommunityFeed = () => {
                         </span>
                       )}
                     </div>
-                    <div className="text-xs text-muted-foreground">{item?.timeAgo}</div>
+                    <div className="text-xs text-muted-foreground">
+                      {item?.timeAgo}
+                    </div>
                   </div>
                 </div>
 
@@ -278,16 +316,22 @@ const CommunityFeed = () => {
                     <div className="flex items-center space-x-4">
                       <button className="flex items-center space-x-1 text-muted-foreground hover:text-primary transition-colors">
                         <Icon name="Heart" size={16} />
-                        <span className="text-sm">{item?.engagement?.likes}</span>
+                        <span className="text-sm">
+                          {item?.engagement?.likes}
+                        </span>
                       </button>
                       <button className="flex items-center space-x-1 text-muted-foreground hover:text-primary transition-colors">
                         <Icon name="MessageCircle" size={16} />
-                        <span className="text-sm">{item?.engagement?.comments}</span>
+                        <span className="text-sm">
+                          {item?.engagement?.comments}
+                        </span>
                       </button>
                     </div>
                     <button className="flex items-center space-x-1 text-muted-foreground hover:text-primary transition-colors">
                       <Icon name="Share" size={16} />
-                      <span className="text-sm">{item?.engagement?.shares}</span>
+                      <span className="text-sm">
+                        {item?.engagement?.shares}
+                      </span>
                     </button>
                   </div>
                 </div>
